@@ -1,0 +1,50 @@
+What is VERSION CONTROL?
+Version control, also known as source control, is the practice of tracking and managing changes to software code. 
+Version control systems are software tools that help software teams manage changes to source code over time. 
+As development environments have accelerated, version control systems help software teams work faster and smarter. 
+They are especially useful for DevOps teams since they help them to reduce development time and increase successful deployments.
+
+Version control software keeps track of every modification to the code in a special kind of database. If a mistake is made, developers 
+can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
+
+
+OTHER VERSION CONTROL SYSTEMS
+1. Azure DevOps Server.
+2. Helix Core.
+3. AWS CodeCommit.
+4. Subversion.
+5. Rational ClearCase
+6. Plastic SCM.
+7. Mercurial.
+8. OpenText AccuRev.
+9. CVS
+10.G2 DEALS
+
+
+What is Git?
+
+Git is an open-source distributed version control system that helps developers manage their source code. 
+Created in 2005 by Finnish software engineer Linus Torvalds (perhaps best known as the lead developer of the free, open source Linux operating system), Git:
+
+- Is designed to be fast and efficient, allowing developers to work on projects of all sizes easily and efficiently.
+- Stores changes to code in “commits,” which are essentially snapshots of the code at a particular moment in time. 
+- Uses commits that are stored locally on the developer’s machine and can be shared with others using Git’s push and pull commands.One advantage of Git is the 
+ability to branch and how the branches are stored, a development approach which isolates lines of code development as separate features to prevent compromising 
+the main branch. Features can then be merged back into the main code when ready.
+
+One advantage of Git is the ability to branch and how the branches are stored, a development approach which isolates lines of code development as separate features 
+to prevent compromising the main branch. Features can then be merged back into the main code when ready.
+
+Comparison to Other Version Control Systems
+
+1. Decentralized Workflow: Unlike centralized systems like SVN, Git does not rely on a central server for every operation. Developers have the freedom to work 
+independently and commit changes locally, providing greater flexibility and enabling faster development.
+
+2. Branching and Merging: Git makes branching and merging easy and efficient. Creating branches allows developers to work on separate features or experiments
+ without interfering with the main codebase. Merging branches combine changes seamlessly, preserving project history and facilitating collaboration.
+
+3. Speed and Performance: Git is designed to handle large projects and perform well even with extensive histories. Operations such as committing changes, 
+switching branches, and comparing versions are incredibly fast, enhancing developer productivity.
+
+4. Data Integrity: Git uses a cryptographic hash algorithm (SHA-1) to ensure data integrity. Every change made to files or directories is tracked by a unique hash,
+ making it virtually impossible for data to be lost or tampered with unnoticed.
