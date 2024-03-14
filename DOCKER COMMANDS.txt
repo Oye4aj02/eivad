@@ -1,0 +1,195 @@
+[18:25, 10/03/2024] Joseph Charles DEVOPS: # Use an official Node.js runtime as a parent image
+FROM node:14-slim
+
+# Create and set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install Node.js dependencies
+RUN npm install
+
+# Copy the React application code into the container
+COPY . .
+
+# Expose the application port
+EXPOSE 3000
+
+# Start the React application
+CMD ["npm", "start"]
+[18:42, 10/03/2024] Joseph Charles DEVOPS: sample docker file  for  node app
+[18:44, 10/03/2024] +234 813 233 3174: Sweet
+[18:46, 10/03/2024] Joseph Charles DEVOPS: docker run [OPTIONS] IMAGE [COMMAND] [ARG...]: Run a container from an image.
+
+docker ps [OPTIONS]: List running containers.
+
+docker ps -a: List all containers (running and stopped).
+
+docker stop CONTAINER [CONTAINER...]: Stop one or more running containers.
+
+docker rm CONTAINER [CONTAINER...]: Remove one or more containers.
+[18:46, 10/03/2024] Joseph Charles DEVOPS: Images:
+docker images [OPTIONS]: List images on the host.
+
+docker rmi IMAGE [IMAGE...]: Remove one or more images.
+
+docker pull IMAGE[:TAG|@DIGEST]: Pull an image or a repository from a registry.
+[18:46, 10/03/2024] Joseph Charles DEVOPS: docker inspect [OPTIONS] NAME|ID [NAME|ID...]: Display detailed information on one or more containers or images.
+[18:47, 10/03/2024] Joseph Charles DEVOPS: docker login [OPTIONS] [SERVER]: Log in to a Docker registry.
+
+docker logout [SERVER]: Log out from a Docker registry.
+
+docker push [OPTIONS] NAME[:TAG]: Push an image or a repository to a registry.
+[18:51, 10/03/2024] Joseph Charles DEVOPS: docker run -p 80:5000 jenkins/jenkins
+[18:52, 10/03/2024] Joseph Charles DEVOPS: docker run -p 80:5000 dockerhubusername/image name
+[18:54, 10/03/2024] Joseph Charles DEVOPS: docker build -t dockerhubusername/reactapp:1.0.4 .
+
+
+DOCKER ASSIGNMENT
+
+DJANGO
+
+Initialize a Django project using django-admin startproject:
+
+django-admin startproject myproject
+
+Write a Dockerfile to containerize the Django application. Create a file named Dockerfile in the root directory of your Django project with the following content:
+
+Dockerfile
+
+# Use the official Python image from Docker Hub
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the dependencies file to the working directory
+COPY requirements.txt /app/
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code to the working directory
+COPY . /app/
+
+Build the Docker image using docker build. Make sure you are in the directory containing the Dockerfile and your Django project:
+
+ requirements.txt 
+
+Django==3.2.12
+django-environ==0.4.5
+gunicorn==20.1.0
+psycopg2-binary==2.9.1
+
+
+docker build -t myproject .
+
+Push the Docker image to Docker Hub using docker push. First, tag your image with your Docker Hub username and repository name:
+
+docker tag mydjango adedokun02/mydjango
+
+Then, push the tagged image to Docker Hub:
+
+docker push adedokun02/mydjango
+
+
+NODE
+
+
+To initialize a Node.js project using npm init, follow these steps:
+
+npm init
+
+Now, let's create a Dockerfile to containerize the Node.js application:
+
+# Use the official Node.js 14 image
+FROM node:14
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install npm dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port on which your app runs
+EXPOSE 3000
+
+# Command to run the application
+CMD [ "npm", "start" ]
+
+
+To build the Docker image, follow these steps:
+
+docker build -t adedokun02/nodejs-app .
+
+To push the Docker image to Docker Hub, follow these steps:
+
+docker push adedokun02/nodejs-app
+
+
+Once the image is pushed to Docker Hub, you can share the Docker Hub URL for this project. It will be in the format:
+
+https://hub.docker.com/r/your-dockerhub-username/nodejs-app
+
+REACT
+
+Initialize a React project using npx create-react-app:
+
+npx create-react-app my-react-app
+
+cd my-react-app
+
+Create a Dockerfile to containerize the React application. Create a file named Dockerfile in the root directory of your React project with the following content:
+
+# Use the official Node.js image as base
+FROM node:14-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the remaining application code to the container
+COPY . .
+
+# Expose port 3000
+EXPOSE 3000
+
+# Command to run the React application
+CMD ["npm", "start"]
+
+Build the Docker image:
+
+docker build -t my-react-app .
+
+Tag the Docker image with your Docker Hub username and repository name:
+
+docker tag my-react-app your_dockerhub_username/my-react-app:latest
+
+Log in to Docker Hub:
+
+docker login
+
+Push the Docker image to Docker Hub:
+
+docker push your_dockerhub_username/my-react-app:latest
+
+Share the Docker Hub URL for this project:
+
+https://hub.docker.com/r/your_dockerhub_username/my-react-app
+

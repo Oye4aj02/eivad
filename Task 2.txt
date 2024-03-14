@@ -1,0 +1,25 @@
+Docker is a popular platform for developing, shipping, and running applications in containers. Containers provide a lightweight and consistent environment that can run applications and their dependencies isolated from the host system. Here are key components of Docker: images, containers, and Dockerfiles.
+
+1. **Docker Images:**
+   - An image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools.
+   - Images are often built from a base image, which can be a minimal operating system or a specialized image with certain tools or libraries pre-installed.
+   - Docker images are typically built using a file called a Dockerfile, which contains instructions for building the image.
+
+2. **Docker Containers:**
+   - A container is a running instance of a Docker image. It is a lightweight, isolated, and executable environment that includes the application and its dependencies.
+   - Containers share the host system's kernel but have their own filesystem, processes, and network space, ensuring isolation and consistency across different environments.
+   - Containers are ephemeral, meaning they can be easily started, stopped, and deleted without affecting the host system or other containers.
+
+3. **Dockerfiles:**
+   - A Dockerfile is a text file that contains a set of instructions for building a Docker image. It defines the base image, sets up the environment, installs dependencies, copies application code, and configures the runtime.
+   - Dockerfiles are used to automate the image-building process, making it reproducible and consistent across different environments.
+   - Examples of Dockerfile instructions include `FROM` (specifying the base image), `RUN` (executing commands during the build process), `COPY` (copying files into the image), and `CMD` (specifying the default command to run when a container starts).
+
+**Relationships:**
+- **Dockerfile to Image:** A Dockerfile serves as a blueprint for building a Docker image. When the `docker build` command is executed with the Dockerfile, it generates a Docker image based on the specified instructions.
+
+- **Image to Container:** An image is used to create and run containers. When you execute the `docker run` command with a specific image, it launches a container based on that image.
+
+- **Container to Image (Commit):** Changes made within a running container, such as installing new software or modifying files, can be committed to create a new image. This new image captures the changes made in the container, allowing for versioning and reproducibility.
+
+In summary, Docker images are the packaged applications and their dependencies, Docker containers are the running instances of those images, and Dockerfiles are the configuration files that define how to build the images. Together, these components provide a powerful and portable way to develop and deploy applications across different environments.
