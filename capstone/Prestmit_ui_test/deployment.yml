@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prestmit-deployment
+  labels:
+    app: prestmit-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: prestmit-app
+  template:
+    metadata:
+      labels:
+        app: prestmit-app
+    spec:
+      containers:
+        - name: prestmit
+          image: mozeloper/prestmit:1.1
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5"
+              memory: "512Mi" # Container port is 80 from docker image
+
+# mozeloper/prestmit:1.1
+# minikube start
+# kubectl apply -f deployment.yml
+# kubectl apply -f service.yml
+# kubectl get deployments
+# kubectl get services
+# minikube service <service-name>
+# kubectl get pods

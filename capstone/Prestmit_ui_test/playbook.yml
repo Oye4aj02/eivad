@@ -1,0 +1,43 @@
+---
+- name: prestmit-app
+  hosts: web_servers
+  become: true
+  tasks:
+    - name: Install Node.js
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present
+
+    - name: Clone Git repository
+      git:
+        repo: https://github.com/Mozeloper/Prestmit_ui_test.git
+        dest: /opt/my-capstone-app
+        version: main
+
+    - name: Install dependencies
+      npm:
+        path: /opt/my-capstone-app
+        state: present
+
+    - name: Build Vite React App
+      npm:
+        path: /opt/my-capstone-app
+        args: build
+
+    - name: Configure Nginx
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/sites-available/my-capstone-app
+      notify:
+        - reload nginx
+
+  handlers:
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded
